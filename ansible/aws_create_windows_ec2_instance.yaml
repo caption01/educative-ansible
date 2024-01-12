@@ -60,7 +60,7 @@
 
     - name: create a new ec2 key
       ec2_key:
-        name: aws-ansible-key
+        name: aws-ansible-window-key
         region: ap-southeast-1
         state: present
       register: ec2_key
@@ -71,7 +71,7 @@
 
     - name: windows - create ec2 instance
       ec2:
-        key_name: aws-ansible-key
+        key_name: aws-ansible-window-key
         instance_type: t2.micro
         image: ami-0c1e9ce55ec62e2a3
         region: ap-southeast-1

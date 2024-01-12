@@ -6,7 +6,7 @@
   tasks: 
     - pause:
         prompt: "Enter password"
-        echo: no
+        echo: yes
       when: password is undefined
       register: password_input
 
@@ -50,7 +50,7 @@
 
     - name: create a new ec2 key
       ec2_key:
-        name: aws-ansible-key
+        name: aws-ansible-linux-key
         region: ap-southeast-1
         state: present
       register: ec2_key
@@ -61,7 +61,7 @@
 
     - name: linux - create ec2 instance
       ec2:
-        key_name: aws-ansible-key
+        key_name: aws-ansible-linux-key
         instance_type: t2.micro
         image: ami-0fa377108253bf620
         region: ap-southeast-1
